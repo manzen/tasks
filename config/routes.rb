@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'tasks#index'
   resources :priorities, expect: [:show, :new, :edit]
   resources :tasks
   devise_for :users
