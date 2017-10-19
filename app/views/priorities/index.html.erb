@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>優先度一覧</h1>
+
+<%= form_for(@priority) do |f| %>
+    <% if @priority.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@priority.errors.count, "error") %> prohibited this priority from being saved:</h2>
+
+          <ul>
+            <% @priority.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>優先度名称</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @priorities.each do |priority| %>
+      <tr>
+        <td><%= priority.name %></td>
+        <td><%= link_to '編集', priorities_path(id: priority.id) %></td>
+        <td><%= link_to '削除', priority, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規作成', priorities_path %>
