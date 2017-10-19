@@ -274,3 +274,10 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
         current_password: 現在のパスワード
+      task:
+        name: タスク名
+        deadline: 期日
+        work_time: 作業時間/日
+        state: 状態
+        implementation_scheduled_date: 実施予定日
+        complete_scheduled_date: 完了日

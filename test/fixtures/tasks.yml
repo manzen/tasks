@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  deadline: 2017-10-18 22:53:18
+  work_time: 1
+  state: MyString
+  implementation_scheduled_date: 2017-10-18
+  complete_scheduled_date: 2017-10-18
+
+two:
+  name: MyString
+  deadline: 2017-10-18 22:53:18
+  work_time: 1
+  state: MyString
+  implementation_scheduled_date: 2017-10-18
+  complete_scheduled_date: 2017-10-18
