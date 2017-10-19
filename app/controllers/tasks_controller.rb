@@ -26,6 +26,11 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
+    p '!!!!!'
+    p params
+    p '!!!!!'
+    p task_params
+    @task.priority = Priority.find(params[:task][:priority_id])
 
     respond_to do |format|
       if @task.save

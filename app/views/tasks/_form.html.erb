@@ -35,6 +35,11 @@
     <%= f.date_select :complete_scheduled_date %>
   </div>
 
+  <div class="field">
+    <%= f.label :priority %>
+    <%= f.collection_select :priority_id, Priority.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -32,7 +32,6 @@ class PrioritiesController < ApplicationController
         format.html { redirect_to priorities_path, notice: "#{@priority.name}を作成しました。" }
         format.json { render :show, status: :created, location: @priority }
       else
-        format.html { render :new }
         format.json { render json: @priority.errors, status: :unprocessable_entity }
       end
     end
@@ -45,8 +44,7 @@ class PrioritiesController < ApplicationController
       if @priority.update(priority_params)
         format.html { redirect_to request.referer, notice: "#{@priority.name}を更新しました。" }
         format.json { render :show, status: :ok, location: @priority }
-      else
-        format.html { render :edit }
+      elsez
         format.json { render json: @priority.errors, status: :unprocessable_entity }
       end
     end

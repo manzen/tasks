@@ -281,5 +281,6 @@ ja:
         state: 状態
         implementation_scheduled_date: 実施予定日
         complete_scheduled_date: 完了日
+        priority: 優先度
       priority:
         name: 優先度名称
