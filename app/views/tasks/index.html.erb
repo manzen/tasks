@@ -19,14 +19,14 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.name %></td>
-        <td><%= task.deadline %></td>
+        <td><%= l(task.deadline, format: :long) %></td>
         <td><%= task.work_time %></td>
         <td><%= task.state %></td>
-        <td><%= task.implementation_scheduled_date %></td>
-        <td><%= task.complete_scheduled_date %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= l(task.implementation_scheduled_date, format: :long) %></td>
+        <td><%= l(task.complete_scheduled_date, format: :long) %></td>
+        <td><%= link_to '詳細', task %></td>
+        <td><%= link_to '編集', edit_task_path(task) %></td>
+        <td><%= link_to '削除', task, method: :delete, data: { confirm: '削除してもよろしいでしょうか?' } %></td>
       </tr>
     <% end %>
   </tbody>
