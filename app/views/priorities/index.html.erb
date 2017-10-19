@@ -39,7 +39,7 @@
       <tr>
         <td><%= priority.name %></td>
         <td><%= link_to '編集', priorities_path(id: priority.id) %></td>
-        <td><%= link_to '削除', priority, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', priority, method: :delete, data: { confirm: '削除してもよろしいでしょうか?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sections, expect: [:show, :new, :edit]
   root 'tasks#index'
   resources :priorities, expect: [:show, :new, :edit]
   resources :tasks
