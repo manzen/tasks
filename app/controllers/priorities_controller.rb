@@ -1,4 +1,5 @@
 class PrioritiesController < ApplicationController
+  before_action :authenticate
   before_action :set_priority, only: [:show, :edit, :update, :destroy]
 
   # GET /priorities
@@ -71,4 +72,9 @@ class PrioritiesController < ApplicationController
     def priority_params
       params.require(:priority).permit(:name)
     end
+
+    def authenticate
+      redirect_to '/users/sign_in' unless user_signed_in?
+    end
+
 end

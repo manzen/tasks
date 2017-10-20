@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_action :authenticate
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
@@ -42,7 +43,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to request.referer, notice: "#{@section.name}を更新しました。"  }
+        format.html { redirect_to @section, notice: "#{@section.name}を更新しました。"  }
         format.json { render :show, status: :ok, location: @section }
       else
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -71,4 +72,9 @@ class SectionsController < ApplicationController
     def section_params
       params.require(:section).permit(:name)
     end
+
+    def authenticate
+      redirect_to '/users/sign_in' unless user_signed_in?
+    end
+
 end

@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -75,4 +76,9 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:name, :deadline, :work_time, :state, :implementation_scheduled_date, :complete_scheduled_date)
     end
+
+    def authenticate
+      redirect_to '/users/sign_in' unless user_signed_in?
+    end
+
 end
