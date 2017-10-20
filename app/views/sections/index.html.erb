@@ -38,7 +38,7 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.name %></td>
-        <td><%= link_to '編集', edit_section_path(section) %></td>
+        <td><%= link_to '編集', sections_path(id: section.id) %></td>
         <td><%= link_to '削除', section, method: :delete, data: { confirm: '削除してもよろしいでしょうか?' } %></td>
       </tr>
     <% end %>

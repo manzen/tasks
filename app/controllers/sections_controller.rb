@@ -8,7 +8,7 @@ class SectionsController < ApplicationController
     @sections = Section.all
 
     if params[:id].present?
-      set_priority
+      set_section
     else
       @section = Section.new
     end
@@ -43,7 +43,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to @section, notice: "#{@section.name}を更新しました。"  }
+        format.html { redirect_to request.referer, notice: "#{@section.name}を更新しました。"  }
         format.json { render :show, status: :ok, location: @section }
       else
         format.json { render json: @section.errors, status: :unprocessable_entity }
