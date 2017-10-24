@@ -27,8 +27,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    @task.priority = Priority.find(params[:task][:priority_id])
-    @task.section = Section.find(params[:task][:section_id])
 
     respond_to do |format|
       if @task.save
@@ -74,7 +72,7 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :deadline, :work_time, :state, :implementation_scheduled_date, :complete_scheduled_date)
+      params.require(:task).permit(:name, :deadline, :work_time, :state, :implementation_scheduled_date, :complete_scheduled_date, :section_id, :priority_id)
     end
 
     def authenticate
