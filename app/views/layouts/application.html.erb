@@ -7,6 +7,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <% if user_signed_in? %>
+        <ul class="header-menus">
+          <li><%= link_to('ユーザー情報修正', '/users/edit')%></li>
+          <li><%= link_to('News一覧', '/news')%></li>
+          <li><%= link_to('書籍一覧', '/books')%></li>
+          <li><%= link_to('タスク一覧', '/tasks')%></li>
+          <li><%= link_to('分類管理', '/sections')%></li>
+          <li><%= link_to('優先度管理', '/priorities')%></li>
+          <li><%= link_to('ログアウト', '/users/sign_out', {method: :delete})%></li>
+        </ul>
+    <% else %>
+        <ul class="header-menus">
+          <li><%= link_to('新規登録', '/users/sign_up')%></li>
+          <li><%= link_to('ログイン', '/users/sign_in')%></li>
+        </ul>
+    <% end %>
+  </header>
 
   <body>
     <%= yield %>
