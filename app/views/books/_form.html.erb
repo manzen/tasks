@@ -1,0 +1,33 @@
+<%= form_for(book) do |f| %>
+  <% if book.errors.any? %>
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_area :url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :readed_page %>
+    <%= f.number_field :readed_page %>
+  </div>
+
+  <div class="field">
+    <%= f.label :section %>
+    <%= f.collection_select :section_id, Section.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

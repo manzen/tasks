@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :books
   resources :news, expect: [:show, :new, :edit]
   resources :sections, expect: [:show, :new, :edit]
   root 'tasks#index'

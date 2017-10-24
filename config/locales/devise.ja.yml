@@ -287,3 +287,6 @@ ja:
         name: 優先度名称
       section:
         name: 分類名称
+      book:
+        name: 書籍名
+        readed_page: 既読ページ数
