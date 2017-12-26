@@ -1,6 +1,10 @@
-<h1>Editing Book</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', book: @book %>
+<div class="container">
+  <h1>書籍編集</h1>
 
-<%= link_to '詳細', @book %> |
-<%= link_to '戻る', books_path %>
+  <%= render 'form', book: @book %>
+
+  <%= link_to '詳細', @book, class: 'btn btn-info' %>
+  <%= link_to '戻る', books_path, class: 'btn btn-secondary' %>
+</div>

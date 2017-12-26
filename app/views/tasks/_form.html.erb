@@ -1,53 +1,55 @@
 <%= form_for(task) do |f| %>
-  <% if task.errors.any? %>
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="form-group">
+      <% if task.errors.any? %>
+          <ul>
+            <% task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
       <% end %>
-      </ul>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :deadline %>
-    <%= f.datetime_select :deadline, :minute_step => 10 %>
-  </div>
+      <div class="field">
+        <%= f.label :deadline %>
+        <%= f.datetime_select :deadline, {minute_step: 10}, {class: 'form-control bootstrap-date'}  %>
+      </div>
 
-  <div class="field">
-    <%= f.label :work_time %>
-    <%= f.number_field :work_time %>時間
-  </div>
+      <div class="field">
+        <%= f.label :work_time %>
+        <%= f.number_field :work_time , class: 'form-control input-width200' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :state %>
-    <%= f.text_area :state %>
-  </div>
+      <div class="field">
+        <%= f.label :state %>
+        <%= f.text_area :state, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :implementation_scheduled_date %>
-    <%= f.date_select :implementation_scheduled_date %>
-  </div>
+      <div class="field">
+        <%= f.label :implementation_scheduled_date %>
+        <%= f.date_select :implementation_scheduled_date, {use_month_numbers: true}, {class: 'form-control bootstrap-date'} %>
+      </div>
 
-  <div class="field">
-    <%= f.label :complete_scheduled_date %>
-    <%= f.date_select :complete_scheduled_date %>
-  </div>
+      <div class="field">
+        <%= f.label :complete_scheduled_date %>
+        <%= f.date_select :complete_scheduled_date, {use_month_numbers: true}, {class: 'form-control bootstrap-date'} %>
+      </div>
 
-  <div class="field">
-    <%= f.label :priority %>
-    <%= f.collection_select :priority_id, Priority.all, :id, :name %>
-  </div>
+      <div class="field">
+        <%= f.label :priority %>
+        <%= f.collection_select :priority_id, Priority.all, :id, :name, {prompt: true}, {class: 'form-control input-width200'} %>
+      </div>
 
-  <div class="field">
-    <%= f.label :section %>
-    <%= f.collection_select :section_id, Section.all, :id, :name %>
-  </div>
+      <div class="field">
+        <%= f.label :section %>
+        <%= f.collection_select :section_id, Section.all, :id, :name, {prompt: true}, {class: 'form-control input-width200'}  %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="actions">
+        <%= f.submit('登録する', class: 'btn btn-primary') %>
+      </div>
+    </div>
 <% end %>

@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>書籍名</strong>
-  <%= @book.name %>
-</p>
+<div class="container">
+  <p>
+    <strong>書籍名</strong>
+    <%= @book.name %>
+  </p>
 
-<p>
-  <strong>Url</strong>
-  <%= @book.url %>
-</p>
+  <p>
+    <strong>Url</strong>
+    <%= @book.url %>
+  </p>
 
-<p>
-  <strong>既読ページ数</strong>
-  <%= @book.readed_page %>
-</p>
+  <p>
+    <strong>既読ページ数</strong>
+    <%= @book.readed_page %>
+  </p>
 
-<%= link_to '編集', edit_book_path(@book) %> |
-<%= link_to '戻る', books_path %>
+  <%= link_to '編集', edit_book_path(@book), class: 'btn btn-primary' %>
+  <%= link_to '戻る', books_path, class: 'btn btn-secondary' %>
+</div>

@@ -1,6 +1,9 @@
-<h1>タスク修正</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', task: @task %>
+<div class="container">
+  <h1>タスク修正</h1>
+  <%= render 'form', task: @task %>
 
-<%= link_to '詳細へ', @task %> |
-<%= link_to '戻る', tasks_path %>
+  <%= link_to '詳細', @task , class: 'btn btn-info' %>
+  <%= link_to '戻る', tasks_path , class: 'btn btn-secondary' %>
+</div>

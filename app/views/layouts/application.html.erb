@@ -7,24 +7,41 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-    <% if user_signed_in? %>
-        <ul class="header-menus">
-          <li><%= link_to('ユーザー情報修正', '/users/edit')%></li>
-          <li><%= link_to('News一覧', '/news')%></li>
-          <li><%= link_to('書籍一覧', '/books')%></li>
-          <li><%= link_to('タスク一覧', '/tasks')%></li>
-          <li><%= link_to('分類管理', '/sections')%></li>
-          <li><%= link_to('優先度管理', '/priorities')%></li>
-          <li><%= link_to('ログアウト', '/users/sign_out', {method: :delete})%></li>
-        </ul>
-    <% else %>
-        <ul class="header-menus">
-          <li><%= link_to('新規登録', '/users/sign_up')%></li>
-          <li><%= link_to('ログイン', '/users/sign_in')%></li>
-        </ul>
-    <% end %>
-  </header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Tasks</a>
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'tasks' %>">
+            <%= link_to('タスク一覧', '/tasks', class: 'nav-link')%>
+          </li>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'news' %>">
+            <%= link_to('News一覧', '/news', class: 'nav-link')%>
+          </li>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'books' %>">
+            <%= link_to('書籍一覧', '/books', class: 'nav-link')%>
+          </li>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'sections' %>">
+            <%= link_to('分類管理', '/sections', class: 'nav-link')%>
+          </li>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'priorities' %>">
+            <%= link_to('優先度管理', '/priorities', class: 'nav-link')%>
+          </li>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'registrations' %>">
+            <%= link_to('ユーザー情報修正', '/users/edit', class: 'nav-link')%>
+          </li>
+          <li class="nav-item">
+            <%= link_to('ログアウト', '/users/sign_out', {method: :delete, class: 'nav-link'})%>
+          </li>
+      <% else %>
+          <li class="nav-item <%= 'active' if controller.controller_name == 'registrations' %>">
+            <%= link_to('新規登録', '/users/sign_up', class: 'nav-link')%>
+          </li>
+          <li class="nav-item">
+            <%= link_to('ログイン', '/users/sign_in', class: 'nav-link')%>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
 
   <body>
     <%= yield %>
